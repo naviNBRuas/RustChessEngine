@@ -1,0 +1,124 @@
+---
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Enable Corepack
+        run: corepack enable
+
+      - name: Install pnpm
+        run: corepack prepare pnpm@latest --activate
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install wasm-pack
+        run: |
+          # Install wasm-pack for building the Rust->WASM package
+          curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+        shell: bash
+
+      - name: Install dependencies (resilient)
+        run: |
+          # Try a frozen install; if it fails due to ignored builds, approve and retry non-interactively
+          if pnpm install --frozen-lockfile; then
+            echo "pnpm install succeeded"
+          else
+            echo "pnpm install failed — attempting to approve build scripts and retry"
+            pnpm approve-builds --all || true
+            pnpm install --frozen-lockfile
+          fi
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Cache Cargo registry
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/rust/**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+
+      - name: Cache Cargo build target
+        uses: actions/cache@v4
+        with:
+          path: |
+            rust/**/target
+          key: ${{ runner.os }}-cargo-target-${{ hashFiles('**/rust/**/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-target-
+
+      - name: Typecheck & Build (workspace)
+        run: pnpm run build
+
+      - name: Format check (workspace)
+        run: pnpm run format:check
+
+      - name: Lint chess-game
+        run: |
+          if [ -f artifacts/chess-game/package.json ]; then
+            pnpm --filter "./artifacts/chess-game" run lint
+          fi
+
+      - name: Run frontend tests (if present)
+        run: |
+          if [ -f artifacts/chess-game/package.json ]; then
+            pnpm --filter "./artifacts/chess-game" run test
+          fi
+
+      - name: Run Rust unit tests
+        run: |
+          if [ -f rust/chess-engine/Cargo.toml ]; then
+            cargo test --manifest-path rust/chess-engine/Cargo.toml --verbose
+          else
+            echo "No Rust crate found at rust/chess-engine; skipping tests"
+          fi
+
+      - name: Build wasm
+        run: |
+          if [ -f artifacts/chess-game/package.json ]; then
+            pnpm --filter "./artifacts/chess-game" run build:wasm
+          fi
+
+      - name: Check wasm artifacts
+        run: |
+          if [ -f artifacts/chess-game/package.json ]; then
+            pnpm run check:wasm
+          fi
+
+      - name: Package release artifacts
+        run: |
+          pnpm run package:zip
+
+      - name: Upload release artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-artifacts
+          path: release-artifacts.zip

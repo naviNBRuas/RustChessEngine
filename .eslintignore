@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+artifacts/**/node_modules
+.next
+.turbo
+/.pnpm-store
+coverage
+.cache
+public/chess-wasm
+**/*.d.ts

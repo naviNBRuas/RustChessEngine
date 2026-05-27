@@ -1,0 +1,14 @@
+/home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/deps/serde-68427617a3bc5826.d: /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/build/serde-a5f2497eb0db5a53/out/private.rs
+
+/home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/deps/libserde-68427617a3bc5826.rlib: /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/build/serde-a5f2497eb0db5a53/out/private.rs
+
+/home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/deps/libserde-68427617a3bc5826.rmeta: /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/build/serde-a5f2497eb0db5a53/out/private.rs
+
+/home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/user/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/build/serde-a5f2497eb0db5a53/out/private.rs:
+
+# env-dep:OUT_DIR=/home/user/GitHub/RustChessEngine/rust/chess-engine/target/wasm32-unknown-unknown/release/build/serde-a5f2497eb0db5a53/out

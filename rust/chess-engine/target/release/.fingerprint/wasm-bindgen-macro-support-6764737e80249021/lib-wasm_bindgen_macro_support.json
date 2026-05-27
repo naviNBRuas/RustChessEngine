@@ -1,0 +1,26 @@
+{
+  "rustc": 7458672600737419911,
+  "features": "[]",
+  "declared_features": "[\"extra-traits\", \"strict-macro\"]",
+  "target": 17930477452216118438,
+  "profile": 14428863833914066107,
+  "path": 18003728317760648820,
+  "deps": [
+    [1957296256905958124, "bumpalo", false, 1385665071613527238],
+    [4289358735036141001, "proc_macro2", false, 2523217022894282723],
+    [10420560437213941093, "syn", false, 8153970233101116074],
+    [13111758008314797071, "quote", false, 1021607005620176006],
+    [14832056118653839104, "wasm_bindgen_shared", false, 5897495223466877759]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "release/.fingerprint/wasm-bindgen-macro-support-6764737e80249021/dep-lib-wasm_bindgen_macro_support",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 8247474407144887393,
+  "compile_kind": 0
+}

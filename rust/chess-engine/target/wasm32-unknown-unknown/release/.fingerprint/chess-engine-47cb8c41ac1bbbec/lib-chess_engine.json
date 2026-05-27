@@ -1,0 +1,24 @@
+{
+  "rustc": 7458672600737419911,
+  "features": "[]",
+  "declared_features": "[]",
+  "target": 1426698177037079131,
+  "profile": 7962184651741261273,
+  "path": 10763286916239946207,
+  "deps": [
+    [13548984313718623784, "serde", false, 10312367422538628092],
+    [13795362694956882968, "serde_json", false, 16789502337483256251],
+    [14242299569946004781, "wasm_bindgen", false, 2939794354107434554]
+  ],
+  "local": [
+    {
+      "CheckDepInfo": {
+        "dep_info": "wasm32-unknown-unknown/release/.fingerprint/chess-engine-47cb8c41ac1bbbec/dep-lib-chess_engine",
+        "checksum": false
+      }
+    }
+  ],
+  "rustflags": [],
+  "config": 8247474407144887393,
+  "compile_kind": 14682669768258224367
+}
